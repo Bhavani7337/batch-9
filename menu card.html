@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Restaurant Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url('https://source.unsplash.com/1600x900/?restaurant,dining') no-repeat center center/cover;
+            color: white;
+            padding: 20px;
+        }
+        h1 {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .menu-buttons, .sub-buttons {
+            margin: 20px 0;
+        }
+        .menu-buttons button, .sub-buttons button, .book-button, .voice-button {
+            margin: 10px;
+            padding: 12px;
+            font-size: 18px;
+            background: orange;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .menu-buttons button:hover, .sub-buttons button:hover, .book-button:hover, .voice-button:hover {
+            background: darkorange;
+        }
+        .menu-section, .sub-category {
+            display: none;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.9);
+            color: black;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 10px;
+            width: 80%;
+        }
+        .menu-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+        .cart {
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>?? Indian Restaurant Menu</h1>
+    
+    <div class="menu-buttons">
+        <button onclick="showSection('tiffins-section')">Tiffins</button>
+        <button onclick="showSection('curries-section')">Curries</button>
+        <button onclick="showSection('desserts-section')">Desserts</button>
+    </div>
+
+    <!-- Tiffins Section -->
+<div id="tiffins-section" class="menu-section">
+    <h2>Tiffins</h2>
+    <div class="sub-buttons">
+        <button onclick="toggleCategory('north-tiffins', 'south-tiffins')">North Indian</button>
+        <button onclick="toggleCategory('south-tiffins', 'north-tiffins')">South Indian</button>
+    </div>
+    <div id="north-tiffins" class="sub-category">
+        <div class="menu-item">
+            <img src="https://cookingfromheart.com/wp-content/uploads/2020/09/Aloo-Paratha-4.jpg" alt="Aloo Paratha">
+            <span>Aloo Paratha - ?120</span><button onclick="addToCart('Aloo Paratha', 120)">Add</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2020/01/poha-500x500.jpg" alt="Poha">
+            <span>Poha - ?80</span><button onclick="addToCart('Poha', 80)">Add</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Chole_Bhature_At_Local_Street.jpg/1200px-Chole_Bhature_At_Local_Street.jpg" alt="Chole Bhature">
+            <span>Chole Bhature - ?140</span><button onclick="addToCart('Chole Bhature', 140)">Add</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://t4.ftcdn.net/jpg/03/28/33/75/360_F_328337542_CbUEcGoH21gTnCxgCMkzBrBQAFFmH7FK.jpg" alt="Puri Sabji">
+            <span>Puri Sabji - ?100</span><button onclick="addToCart('Puri Sabji', 100)">Add</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://media.istockphoto.com/id/1821735263/photo/raj-kachori-or-rajashtani-raj-kachori-chaat.jpg?s=612x612&w=0&k=20&c=HSwOdglQmk_Fx3VqfK3cj3bJN65UWoTOuhIyPF4pEiQ=" alt="Kachori">
+            <span>Kachori - ?90</span><button onclick="addToCart('Kachori', 90)">Add</button>
+        </div>
+    </div>
+    <div id="south-tiffins" class="sub-category">
+        <div class="menu-item">
+            <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2021/06/masala-dosa-recipe.jpg" alt="Masala Dosa">
+            <span>Masala Dosa - ?150</span><button onclick="addToCart('Masala Dosa', 150)">Add</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://www.ohmyveg.co.uk/wp-content/uploads/2023/07/Idli-1-scaled-e1722868852202-720x720.jpg" alt="Idli">
+            <span>Idli - ?80</span><button onclick="addToCart('Idli', 80)">Add</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://maayeka.com/wp-content/uploads/2018/10/vrat-ka-medu-vada-2-2.jpg" alt="Medu Vada">
+            <span>Medu Vada - ?100</span><button onclick="addToCart('Medu Vada', 100)">Add</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://www.blendwithspices.com/wp-content/uploads/2018/03/upma-recipe-500x500.jpg" alt="Upma">
+            <span>Upma - ?90</span><button onclick="addToCart('Upma', 90)">Add</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://rakskitchen.net/wp-content/uploads/2013/03/8527219504_0ddb2cde6f_z-500x500.jpg" alt="Uttapam">
+            <span>Uttapam - ?120</span><button onclick="addToCart('Uttapam', 120)">Add</button>
+        </div>
+    </div>
+</div>
+
+<!-- Curries Section -->
+<div id="curries-section" class="menu-section">
+    <h2>Curries</h2>
+    <div class="sub-buttons">
+        <button onclick="toggleCategory('north-curries', 'south-curries')">North Indian</button>
+        <button onclick="toggleCategory('south-curries', 'north-curries')">South Indian</button>
+    </div>
+    <div id="north-curries" class="sub-category">
+        <div class="menu-item">
+            <img src="https://images.immediate.co.uk/production/volatile/sites/30/2021/02/butter-chicken-ac2ff98.jpg?quality=90&resize=440,400" alt="Butter Chicken">
+            <span>Butter Chicken - ?250</span><button onclick="addToCart('Butter Chicken', 250)">Add</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx7obO58mwR6VU7QAxk2wPPGAHWk0oQNNU1A&s" alt="Paneer Butter Masala">
+            <span>Paneer Butter Masala - ?200</span><button onclick="addToCart('Paneer Butter Masala', 200)">Add</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://rainbowplantlife.com/wp-content/uploads/2021/06/Dal-Makhani-edited-photos-5-of-6.jpg" alt="Dal Makhani">
+            <span>Dal Makhani - ?180</span><button onclick="addToCart('Dal Makhani', 180)">Add</button>
+        </div>
+    </div>
+	<div id="south-curries" class="sub-category">
+        <div class="menu-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9cjzG_0kKXtWq0uE68dyY3V7mp-8qxCmoOg&s" alt="Sambar">
+            <span>Sambar - ?120</span><button onclick="addToCart('Sambar', 120)">Add</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlPQXFO4B201Ry8o7_Soa7dwhJBrtcwJdE0w&s" alt="Briyan">
+            <span>Briyani - ?200</span><button onclick="addToCart('Briyani', 200)">Add</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://assets.epicurious.com/photos/614b8f5d8d69f1fc17e86281/1:1/w_3451,h_3451,c_limit/Stir_fried_prawns_FMOL_1.jpg" alt="Prawn">
+            <span>Prawn - ?250</span><button onclick="addToCart('Prawn', 250)">Add</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://www.foodandwine.com/thmb/8YAIANQTZnGpVWj2XgY0dYH1V4I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/spicy-chicken-curry-FT-RECIPE0321-58f84fdf7b484e7f86894203eb7834e7.jpg" alt="Chicken">
+            <span>Chicken - ?280</span><button onclick="addToCart('Chicken', 280)">Add</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://www.spicebangla.com/wp-content/uploads/2024/08/Egg-Masala-Curry.webp" alt="Egg">
+            <span>Egg - ?120</span><button onclick="addToCart('Egg', 100)">Add</button>
+        </div>
+    </div>
+</div>
+
+<!-- Desserts Section -->
+<div id="desserts-section" class="menu-section">
+    <h2>Desserts</h2>
+    <div class="sub-buttons">
+        <button onclick="toggleCategory('north-desserts', 'south-desserts')">North Indian</button>
+        <button onclick="toggleCategory('south-desserts', 'north-desserts')">South Indian</button>
+    </div>
+    <div id="north-desserts" class="sub-category">
+        <div class="menu-item">
+            <img src="https://rakskitchen.net/wp-content/uploads/2021/09/gulab-jamun.jpg" alt="Gulab Jamun">
+            <span>Gulab Jamun - ?120</span><button onclick="addToCart('Gulab Jamun', 120)">Add</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://palatesdesire.com/wp-content/uploads/2022/09/rasgulla-recipe@palates-desire-500x375.jpg" alt="Rasgulla">
+            <span>Rasgulla - ?110</span><button onclick="addToCart('Rasgulla', 110)">Add</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Cuisine_%28268%29_44.jpg/640px-Cuisine_%28268%29_44.jpg" alt="Gajar Ka Halwa">
+            <span>Gajar Ka Halwa - ?130</span><button onclick="addToCart('Gajar Ka Halwa', 130)">Add</button>
+        </div>
+    </div>
+	<div id="south-desserts" class="sub-category">
+        <div class="menu-item">
+            <img src="https://www.sharmispassions.com/wp-content/uploads/2023/10/semiya-payasam1-500x500.jpg" alt="Payasam">
+            <span>Payasam - ?120</span><button onclick="addToCart('Payasam', 120)">Add</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX9spJkyutLTyruoHVgOO6237DYmUoFKMsnA&s" alt="Laddu">
+            <span>Laddu - ?90</span><button onclick="addToCart('Laddu', 90)">Add</button>
+        </div>
+        <div class="menu-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd6T5Zne50fFZl2oioecKRgj9RkBm--rS7aQ&s" alt="Kesar">
+            <span>Kesar - ?130</span><button onclick="addToCart('Kesar', 130)">Add</button>
+        </div>
+    </div>
+</div>
+
+    <div class="cart">
+        <h2>?? Cart</h2>
+        <ul id="cart-items"></ul>
+        <h3>Total: ?<span id="totalAmount">0</span></h3>
+        <button class="book-button" onclick="bookOrder()">?? Book Order</button>
+        <button class="voice-button" onclick="startVoiceOrder()">?? Order by Voice</button>
+    </div>
+
+    <script>
+        let totalAmount = 0;
+        const cartItems = [];
+
+        function addToCart(item, price) {
+            cartItems.push({ name: item, price });
+            totalAmount += price;
+            updateCart();
+            speak(`Added ${item}. Total is now ?${totalAmount}`);
+        }
+
+        function updateCart() {
+            document.getElementById("cart-items").innerHTML = cartItems.map(item => `<li>${item.name} - ?${item.price}</li>`).join("");
+            document.getElementById("totalAmount").innerText = totalAmount;
+        }
+
+        function bookOrder() {
+            if (cartItems.length === 0) {
+                alert("Your cart is empty! Add items before booking.");
+                speak("Your cart is empty! Add items before booking.");
+            } else {
+                alert("Order placed successfully!\nThank you for ordering.");
+                speak("Order placed successfully! Thank you for ordering.");
+                cartItems.length = 0;
+                totalAmount = 0;
+                updateCart();
+            }
+        }
+
+        function showSection(sectionId) {
+            document.querySelectorAll(".menu-section").forEach(sec => sec.style.display = "none");
+            document.getElementById(sectionId).style.display = "block";
+        }
+
+        function toggleCategory(showId, hideId) {
+            document.getElementById(showId).style.display = "block";
+            document.getElementById(hideId).style.display = "none";
+        }
+
+        function startVoiceOrder() {
+            let recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.onstart = function() {
+                speak("Listening for your order...");
+            };
+            recognition.onresult = function(event) {
+                let voiceInput = event.results[0][0].transcript.toLowerCase();
+                let menuItems = {
+                    "aloo paratha": 120,
+                    "masala dosa": 150,
+                    "butter chicken": 250
+                };
+
+                for (let item in menuItems) {
+                    if (voiceInput.includes(item)) {
+                        addToCart(item, menuItems[item]);
+                        return;
+                    }
+                }
+                speak("Item not found in menu.");
+            };
+            recognition.start();
+        }
+
+        function speak(text) {
+            let speech = new SpeechSynthesisUtterance(text);
+            speech.lang = "en-IN";
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
+</body>
+</html>
